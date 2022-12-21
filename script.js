@@ -90,7 +90,6 @@ function on() {
 		theme = JSON.parse(localStorage.getItem('theme'))
 		on()
 	}
-	console.log(theme)
 })()
 
 toggle.onclick = () => {

@@ -4,6 +4,8 @@
 	box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1.1em;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
 }
 html {
 	height: 100vh;
@@ -25,12 +27,15 @@ body {
 	background-color: var(--bg);
 	color: var(--color);
 	height: 100vh;
+	position: fixed;
+	inset: 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin: 0;
 	padding: 0;
 	transition: 0.3s;
+	overscroll-behavior-y: contain;
 }
 
 .from-date {
