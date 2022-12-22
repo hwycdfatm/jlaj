@@ -23,6 +23,14 @@ html.dark {
 	--box-top: #232323;
 	--box-bot: #222222;
 }
+html.landscape body .wrapper {
+	display: flex;
+	align-items: center;
+}
+html.landscape body .circle {
+	width: 200px;
+	margin: 0 50px 0 0;
+}
 body {
 	background-color: var(--bg);
 	color: var(--color);

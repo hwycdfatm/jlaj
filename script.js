@@ -67,14 +67,14 @@ const toggle = document.querySelector('.toggle')
 let theme
 
 function off() {
-	document.querySelector('html').classList.remove('dark')
-	document.querySelector('html').classList.add('light')
+	document.documentElement.classList.remove('dark')
+	document.documentElement.classList.add('light')
 	document.querySelector('.toggle').classList.remove('active')
 }
 
 function on() {
-	document.querySelector('html').classList.remove('light')
-	document.querySelector('html').classList.add('dark')
+	document.documentElement.classList.remove('light')
+	document.documentElement.classList.add('dark')
 	document.querySelector('.toggle').classList.add('active')
 }
 
@@ -111,3 +111,11 @@ window.addEventListener('resize', () => {
 
 let vh = window.innerHeight * 0.01
 document.documentElement.style.setProperty('--vh', `${vh}px`)
+
+window.addEventListener('orientationchange', function () {
+	if (window.orientation === 90 || window.orientation === -90) {
+		document.documentElement.classList.add('landscape')
+	} else {
+		document.documentElement.classList.remove('landscape')
+	}
+})
