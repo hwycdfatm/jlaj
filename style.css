@@ -116,6 +116,7 @@ body {
 	position: absolute;
 	width: 100%;
 	animation: flip-top 250ms ease-in;
+	will-change: transform;
 	transform-origin: bottom;
 }
 
@@ -132,6 +133,7 @@ body {
 	animation: flip-bottom 250ms ease-out 250ms;
 	transform-origin: top;
 	transform: rotateX(90deg);
+	will-change: transform;
 }
 
 @keyframes flip-bottom {
@@ -213,9 +215,6 @@ body {
 	perspective: 500px;
 	width: 295px;
 }
-/* .wrapper.flip {
-	transform: translate(-50%, -50%) rotateY(180deg);
-} */
 
 .wrapper.flip-horizontal {
 	transform: translate(-50%, -50%) rotateY(-180deg);
@@ -229,6 +228,11 @@ body {
 .wrapper[class*='flip'] .wrapper-inner.back {
 	opacity: 1;
 }
+
+.wrapper[class*='flip'] .wrapper-inner.front {
+	opacity: 0;
+}
+
 .wrapper .wrapper-inner {
 	position: absolute;
 	width: 100%;
