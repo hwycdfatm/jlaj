@@ -200,3 +200,118 @@ body {
 .toggle.active .toggle-inner span {
 	color: var(--color);
 }
+
+.wrapper {
+	display: block;
+	transform-style: preserve-3d;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	min-height: 75vh;
+	transform: translate(-50%, -50%);
+	transition: transform 0.9s ease;
+	perspective: 500px;
+	width: 295px;
+}
+/* .wrapper.flip {
+	transform: translate(-50%, -50%) rotateY(180deg);
+} */
+
+.wrapper.flip-horizontal {
+	transform: translate(-50%, -50%) rotateY(-180deg);
+}
+.wrapper.flip-vertical {
+	transform: translate(-50%, -50%) rotateX(-180deg);
+}
+.wrapper.flip-vertical .wrapper-inner.back {
+	transform: rotateY(0) rotateX(180deg);
+}
+.wrapper[class*='flip'] .wrapper-inner.back {
+	opacity: 1;
+}
+.wrapper .wrapper-inner {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+.wrapper .wrapper-inner.back {
+	transform: rotateY(180deg);
+	opacity: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+}
+
+.wrapper .wrapper-inner.back::before {
+	content: 'Valentine zui ẻ';
+	position: absolute;
+	top: -3rem;
+	width: 100%;
+	left: 0;
+	font-size: 1.5rem;
+	z-index: 8;
+	text-align: center;
+	will-change: transform;
+}
+.wrapper .wrapper-inner.back .photo {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.wrapper .wrapper-inner.back img {
+	position: absolute;
+	inset: 0;
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 5px;
+	opacity: 0;
+	animation-name: fade;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-duration: 8s;
+	animation-play-state: paused;
+}
+
+.wrapper .wrapper-inner.back img:nth-of-type(1) {
+	animation-delay: 8s;
+}
+.wrapper .wrapper-inner.back img:nth-of-type(2) {
+	animation-delay: 6s;
+}
+.wrapper .wrapper-inner.back img:nth-of-type(3) {
+	animation-delay: 4s;
+}
+.wrapper .wrapper-inner.back img:nth-of-type(4) {
+	animation-delay: 2s;
+}
+.wrapper .wrapper-inner.back img:nth-of-type(5) {
+	animation-delay: 0s;
+}
+
+.wrapper[class*='flip'] .wrapper-inner.back img {
+	animation-play-state: running;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 1;
+	}
+	17% {
+		opacity: 1;
+	}
+	25% {
+		opacity: 0;
+	}
+	92% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
